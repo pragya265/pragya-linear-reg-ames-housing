@@ -6,7 +6,7 @@ from dash.dependencies import Input, Output, State
 
 ########### Define your variables ######
 myheading1='Predicting Home Sale Prices in Ames, Iowa'
-image1='ames_welcome.jpeg'
+image1='da_house.jpeg'
 tabtitle = 'Ames Housing'
 sourceurl = 'http://jse.amstat.org/v19n3/decock.pdf'
 githublink = 'https://github.com/plotly-dash-apps/501-linear-reg-ames-housing'
@@ -80,11 +80,11 @@ app.layout = html.Div(children=[
     State(component_id='KitchenAbvGr', component_property='value')
 
 )
-def ames_lr_function(clicks, YearBuilt,Bathrooms,BedroomAbvGr,TotalSF,SingleFam,LargeNeighborhood):
+def ames_lr_function(clicks, YearBuilt,Bathrooms,BedroomAbvGr,TotalSF,SingleFam,KitchenAbvGr):
     if clicks==0:
         return "waiting for inputs"
     else:
-        y = [-1360501.3809 + 704.4287*YearBuilt + 12738.4775*Bathrooms + -7783.1712*BedroomAbvGr + 49.824*TotalSF+ 25282.091*SingleFam+ 86006*KitchenAbvGr]
+        y = [-1360501.3809 + 704.4287*YearBuilt + 12738.4775*Bathrooms + -7783.1712*BedroomAbvGr + 49.824*TotalSF+ 25282.091*SingleFam+ 8600*KitchenAbvGr]
         formatted_y = "${:,.2f}".format(y[0])
         return formatted_y
 
